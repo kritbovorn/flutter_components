@@ -3,6 +3,7 @@ import 'package:flutter_components/components/titleHead/title_section_component.
 
 class CategoryComponent extends StatefulWidget {
 
+  // Data
   final List<String> categories;
   
   const CategoryComponent({
@@ -42,7 +43,7 @@ class _CategoryComponentState extends State<CategoryComponent> {
                   color: selectedIndex == index
                       ? Colors.black
                       : Colors.transparent,
-                )
+                ),
               ],
             ),
           );

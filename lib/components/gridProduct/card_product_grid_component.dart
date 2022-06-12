@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_components/constants.dart';
-import 'package:flutter_components/product.dart';
+import 'package:flutter_components/models/product.dart';
 
 
 class CardProductGridComponent extends StatelessWidget {
   final Product product;
+  final Color? titleColor;
   final VoidCallback onPressed;
+  final double? padding;
   const CardProductGridComponent({
     Key? key,
     required this.product,
+    this.titleColor = Colors.black,
     required this.onPressed,
+    this.padding = 20,
   }) : super(key: key);
 
   @override
@@ -21,16 +24,16 @@ class CardProductGridComponent extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              padding: const EdgeInsets.all(kDefaultPadding),
+              padding:  EdgeInsets.all(padding!),
               decoration: BoxDecoration(
                 color: product.color,
-                borderRadius: BorderRadius.circular(kDefaultPadding / 2),
+                borderRadius: BorderRadius.circular(padding! / 2),
               ),
               child: Image.asset(product.image),
             ),
           ),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
+            padding:  EdgeInsets.symmetric(horizontal: padding! / 2),
             height: 50,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -38,16 +41,16 @@ class CardProductGridComponent extends StatelessWidget {
               children: [
                 Text(
                   product.title,
-                  style: const TextStyle(
-                    color: kTextColor,
+                  style: TextStyle(
+                    color: titleColor,
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
                   '\$${product.price}',
-                  style: const TextStyle(
-                    color: kTextColor,
+                  style: TextStyle(
+                    color: titleColor,
                     fontWeight: FontWeight.bold,
                   ),
                 )

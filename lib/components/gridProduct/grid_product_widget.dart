@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_components/components/gridProduct/card_product_grid_component.dart';
-import 'package:flutter_components/constants.dart';
 import 'package:flutter_components/detail_screen.dart';
-import 'package:flutter_components/product.dart';
+import 'package:flutter_components/models/product.dart';
 
 class GridProductWidget extends StatelessWidget {
-  const GridProductWidget({Key? key}) : super(key: key);
+  final double? padding;
+  const GridProductWidget({
+    Key? key,
+    this.padding = 20.0,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+        padding:  EdgeInsets.symmetric(horizontal: padding!),
         child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: 0.7,
-            crossAxisSpacing: kDefaultPadding,
-            mainAxisSpacing: kDefaultPadding,
+            crossAxisSpacing: padding!,
+            mainAxisSpacing: padding!,
           ),
           itemCount: products.length,
           itemBuilder: (BuildContext context, int index) {

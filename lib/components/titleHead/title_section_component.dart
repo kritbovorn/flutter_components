@@ -8,22 +8,22 @@ class TitleSectionComponent extends StatelessWidget {
   const TitleSectionComponent({
     Key? key,
     required this.title,
-    this.titleColor,
+    this.titleColor = Colors.black87,
     this.textStyle,
-    this.padding,
+    this.padding = 20,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: padding ?? 20, vertical: padding ?? 10),
+          horizontal: padding!, vertical: padding! / 2),
       child: Text(
         title,
         style: textStyle ??
             Theme.of(context).textTheme.headline5!.copyWith(
                 fontWeight: FontWeight.bold,
-                color: titleColor ?? Colors.black87),
+                color: titleColor),
       ),
     );
   }
